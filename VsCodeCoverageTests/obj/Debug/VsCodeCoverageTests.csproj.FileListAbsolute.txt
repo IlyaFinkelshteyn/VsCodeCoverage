@@ -1,0 +1,14 @@
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.pdb
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverage.dll
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverage.pdb
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\obj\Debug\VsCodeCoverageTests.csprojResolveAssemblyReference.cache
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\obj\Debug\VsCodeCoverageTests.dll
+C:\Users\appveyor\Documents\Visual Studio 2017\Projects\VsCodeCoverage\VsCodeCoverageTests\obj\Debug\VsCodeCoverageTests.pdb

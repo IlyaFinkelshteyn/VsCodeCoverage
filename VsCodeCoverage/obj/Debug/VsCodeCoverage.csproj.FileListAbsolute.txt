@@ -1,0 +1,5 @@
+c:\users\appveyor\documents\visual studio 2017\Projects\VsCodeCoverage\VsCodeCoverage\bin\Debug\VsCodeCoverage.dll
+c:\users\appveyor\documents\visual studio 2017\Projects\VsCodeCoverage\VsCodeCoverage\bin\Debug\VsCodeCoverage.pdb
+c:\users\appveyor\documents\visual studio 2017\Projects\VsCodeCoverage\VsCodeCoverage\obj\Debug\VsCodeCoverage.csprojResolveAssemblyReference.cache
+c:\users\appveyor\documents\visual studio 2017\Projects\VsCodeCoverage\VsCodeCoverage\obj\Debug\VsCodeCoverage.dll
+c:\users\appveyor\documents\visual studio 2017\Projects\VsCodeCoverage\VsCodeCoverage\obj\Debug\VsCodeCoverage.pdb
