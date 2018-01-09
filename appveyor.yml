@@ -5,7 +5,12 @@ install:
 - copy "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Extensions\appveyor.*" "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Extensions" /y
 build:
   verbosity: minimal
-after_build:
-- cmd: vstest.console.exe /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj
+#after_build:
+#- cmd: vstest.console.exe /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj
+
+test_script:
+vstest.console /logger:Appveyor /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll
+
+
 #on_finish:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
