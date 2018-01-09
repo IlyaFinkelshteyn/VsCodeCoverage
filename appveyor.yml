@@ -4,18 +4,19 @@ install:
 #- set path=%ProgramFiles(x86)%\Microsoft Visual Studio\2017\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow;%path%
 #- set path=C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\TestPlatform;%path%
 #- copy "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Extensions\appveyor.*" "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Extensions" /y
-- set path=C:\Program Files (x86)\Microsoft Visual Studio\2017\TestAgent\Team Tools\Dynamic Code Coverage Tools\amd64;%path%
+#- set path=C:\Program Files (x86)\Microsoft Visual Studio\2017\TestAgent\Team Tools\Dynamic Code Coverage Tools\amd64;%path%
 
 build:
   verbosity: minimal
+
 #after_build:
 #- cmd: vstest.console.exe /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj
 
 test_script:
-- where vstest.console
-- where CodeCoverage.exe
+#- where vstest.console
+#- where CodeCoverage.exe
 - vstest.console /logger:Appveyor /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll
-
+- vstest.console /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll
 
 #on_finish:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
