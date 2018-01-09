@@ -11,6 +11,7 @@ build:
 
 test_script:
 - where vstest.console
+- where CodeCoverage.exe
 - vstest.console /logger:Appveyor /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll
 
 
