@@ -9,8 +9,8 @@ install:
 build:
   verbosity: minimal
 
-#after_build:
-#- cmd: vstest.console.exe /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj
+after_build:
+- cmd: vstest.console.exe /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj
 
 test_script:
 #- where vstest.console
