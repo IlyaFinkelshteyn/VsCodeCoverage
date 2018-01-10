@@ -1,23 +1,41 @@
-version: 1.0.{build}
-image: Visual Studio 2017
-install:
-- set path=%ProgramFiles(x86)%\Microsoft Visual Studio\2017\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow;%path%
-- copy "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Extensions\appveyor.*" "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Extensions" /y
-
-#- set path=C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\TestPlatform;%path%
-#- set path=C:\Program Files (x86)\Microsoft Visual Studio\2017\TestAgent\Team Tools\Dynamic Code Coverage Tools\amd64;%path%
+image:
+- Previous Visual Studio 2017
+- Visual Studio 2017
 
 build:
   verbosity: minimal
 
-after_build:
-- cmd: vstest.console.exe /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj
-
 test_script:
-- where vstest.console
-#- where CodeCoverage.exe
-- vstest.console /logger:Appveyor /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll
-- vstest.console /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll
+- where vstest.console & exit 0
+- where CodeCoverage.exe & exit 0
+
+- ps: write-host "Coverage .csproj no logger"  -ForegroundColor Yellow
+- vstest.console.exe /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj & exit 0
+
+- ps: write-host "Coverage .dll no logger"  -ForegroundColor Yellow
+- vstest.console /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll & exit 0
+
+- ps: write-host "Coverage .csproj WITH logger"  -ForegroundColor Yellow
+- vstest.console.exe /logger:Appveyor /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj & exit 0
+
+- ps: write-host "Coverage .dll WITH logger"  -ForegroundColor Yellow
+- vstest.console /logger:Appveyor /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll & exit 0
+
+- ps: write-host "Running workaround scripts"  -ForegroundColor Yellow
+- set path=%ProgramFiles(x86)%\Microsoft Visual Studio\2017\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow;%path%
+- copy "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Extensions\appveyor.*" "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Extensions" /y
+
+- ps: write-host "Coverage .csproj no logger"  -ForegroundColor Yellow
+- vstest.console.exe /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj & exit 0
+
+- ps: write-host "Coverage .dll no logger"  -ForegroundColor Yellow
+- vstest.console /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll & exit 0
+
+- ps: write-host "Coverage .csproj WITH logger"  -ForegroundColor Yellow
+- vstest.console.exe /logger:Appveyor /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj & exit 0
+
+- ps: write-host "Coverage .dll WITH logger"  -ForegroundColor Yellow
+- vstest.console /logger:Appveyor /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll & exit 0
 
 on_finish:
 - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
