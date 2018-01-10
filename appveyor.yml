@@ -6,35 +6,40 @@ build:
   verbosity: minimal
 
 test_script:
+- ps: write-host "(before workaround) WHERE"  -ForegroundColor Yellow
 - where vstest.console & exit 0
 - where CodeCoverage.exe & exit 0
 
-- ps: write-host "Coverage .csproj no logger"  -ForegroundColor Yellow
+- ps: write-host "(before workaround) .csproj no logger"  -ForegroundColor Yellow
 - 'vstest.console.exe /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj & exit 0'
 
-- ps: write-host "Coverage .dll no logger"  -ForegroundColor Yellow
+- ps: write-host "(before workaround) .dll no logger"  -ForegroundColor Yellow
 - vstest.console /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll" & exit 0
 
-- ps: write-host "Coverage .csproj WITH logger"  -ForegroundColor Yellow
+- ps: write-host "(before workaround) .csproj WITH logger"  -ForegroundColor Yellow
 - vstest.console.exe /logger:Appveyor /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj & exit 0
 
-- ps: write-host "Coverage .dll WITH logger"  -ForegroundColor Yellow
+- ps: write-host "(before workaround) .dll WITH logger"  -ForegroundColor Yellow
 - vstest.console /logger:Appveyor /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll" & exit 0
 
 - ps: write-host "Running workaround scripts"  -ForegroundColor Yellow
 - set path=%ProgramFiles(x86)%\Microsoft Visual Studio\2017\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow;%path%
 - copy "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Extensions\appveyor.*" "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Extensions" /y
 
-- ps: write-host "Coverage .csproj no logger"  -ForegroundColor Yellow
+- ps: write-host "(after workaround) WHERE"  -ForegroundColor Yellow
+- where vstest.console & exit 0
+- where CodeCoverage.exe & exit 0
+
+- ps: write-host "(after workaround) .csproj no logger"  -ForegroundColor Yellow
 - vstest.console.exe /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj & exit 0
 
-- ps: write-host "Coverage .dll no logger"  -ForegroundColor Yellow
+- ps: write-host "(after workaround) .dll no logger"  -ForegroundColor Yellow
 - vstest.console /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll" & exit 0
 
-- ps: write-host "Coverage .csproj WITH logger"  -ForegroundColor Yellow
+- ps: write-host "(after workaround) .csproj WITH logger"  -ForegroundColor Yellow
 - vstest.console.exe /logger:Appveyor /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj & exit 0
 
-- ps: write-host "Coverage .dll WITH logger"  -ForegroundColor Yellow
+- ps: write-host "(after workaround) .dll WITH logger"  -ForegroundColor Yellow
 - vstest.console /logger:Appveyor /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll" & exit 0
 
 on_finish:
