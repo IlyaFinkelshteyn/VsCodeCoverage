@@ -9,4 +9,4 @@ test_script:
 - copy "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Extensions\appveyor.*" "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow\Extensions" /y
 - vstest.console /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll" /logger:trx;LogFileName=results.trx
 - ps: $wc = New-Object 'System.Net.WebClient'
-- ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\xunit-results.trx))
+- ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/mstest/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\results.trx))
