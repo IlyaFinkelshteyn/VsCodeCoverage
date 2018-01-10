@@ -10,7 +10,7 @@ test_script:
 - where CodeCoverage.exe & exit 0
 
 - ps: write-host "Coverage .csproj no logger"  -ForegroundColor Yellow
-- 'vstest.console.exe /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj' & exit 0
+- 'vstest.console.exe /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj & exit 0'
 
 - ps: write-host "Coverage .dll no logger"  -ForegroundColor Yellow
 - vstest.console /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll & exit 0
