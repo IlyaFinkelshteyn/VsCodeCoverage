@@ -42,5 +42,12 @@ test_script:
 - ps: write-host "(after workaround) .dll WITH logger"  -ForegroundColor Yellow
 - vstest.console /logger:Appveyor /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll" & exit 0
 
+- ps: write-host "(after workaround) .csproj WITH TRX logger"  -ForegroundColor Yellow
+- vstest.console.exe /logger:trx /EnableCodeCoverage VsCodeCoverageTests\VsCodeCoverageTests.csproj & exit 0
+
+- ps: write-host "(after workaround) .dll WITH TRX logger"  -ForegroundColor Yellow
+- vstest.console /logger:trx /EnableCodeCoverage "C:\projects\vscodecoverage\VsCodeCoverageTests\bin\Debug\VsCodeCoverageTests.dll" & exit 0
+
+
 on_finish:
 - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
